@@ -1,4 +1,3 @@
-lzc-sdk-version: "0.1"
 name: Pocket ID
 package: lazycat.community.app.pocket-id
 version: 1.6.1
@@ -20,7 +19,11 @@ services:
         # ghcr.io/pocket-id/pocket-id:v1
         image: registry.lazycat.cloud/czyt/pocket-id/pocket-id:3a9640998f9c5f4d
         environment:
-            - APP_URL=https://${LAZYCAT_APP_DOMAIN}
+{{if .U.enable_custom_domain}}
+            - APP_URL=https://{{.U.custom_domain}}
+{{else}}
+            - APP_URL=http://${{.S.AppDomain}}
+{{end}}
             - TRUST_PROXY={{.U.trust_proxy}}
             - MAXMIND_LICENSE_KEY={{.U.maxmind_license_key}}
             - ENCRYPTION_KEY={{stable_secret "pocket_id_encryption_x"}}

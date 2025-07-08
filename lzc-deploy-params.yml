@@ -1,4 +1,17 @@
 params:
+    - id: enable_custom_domain
+      type: bool
+      name: "Enable Custom Domain"
+      description: "Whether to enable custom domain,if false,use lazycat provided domain"
+      default_value: false
+
+    - id: custom_domain
+      type: string
+      name: "Custom Domain"
+      description: "Custom domain for the application"
+      default_value: ""
+      optional: true
+
     - id: trust_proxy
       type: bool
       name: "whether the app is behind a reverse proxy"
@@ -14,6 +27,14 @@ params:
 
 locales:
     zh:
+        enable_custom_domain:
+            name: "启用自定义域名"
+            description: "是否启用自定义域名，如果为false，则使用懒猫微服提供的域名"
+
+        custom_domain:
+            name: "自定义域名"
+            description: "应用程序的自定义域名"
+
         trust_proxy:
             name: "信任代理"
             description: "是否信任代理,当应用部署在proxy程序之后时，请设置为true.默认为true"
