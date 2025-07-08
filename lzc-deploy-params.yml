@@ -1,0 +1,23 @@
+params:
+    - id: trust_proxy
+      type: bool
+      name: "whether the app is behind a reverse proxy"
+      description: "Whether the app is behind a reverse proxy"
+      default_value: true
+
+    - id: maxmind_license_key
+      type: string
+      name: "MaxMind license key"
+      description: "MaxMind license key for IP geolocation"
+      default_value: ""
+      optional: true
+
+locales:
+    zh:
+        trust_proxy:
+            name: "信任代理"
+            description: "是否信任代理,当应用部署在proxy程序之后时，请设置为true.默认为true"
+
+        maxmind_license_key:
+            name: "MaxMind许可证密钥"
+            description: "MaxMind许可证密钥用于IP地理位置"

@@ -1,0 +1,35 @@
+lzc-sdk-version: "0.1"
+name: Pocket ID
+package: lazycat.community.app.pocket-id
+version: 1.6.1
+min_os_version: 1.3.8
+description: A simple and easy-to-use OIDC provider
+homepage: https://github.com/pocket-id/pocket-id
+author: pocket-id org
+application:
+    subdomain: pocket-id
+    background_task: true
+    multi_instance: false
+    public_path:
+        - /
+    routes:
+        - /=http://pocket-id:1411/
+
+services:
+    pocket-id:
+        # ghcr.io/pocket-id/pocket-id:v1
+        image: registry.lazycat.cloud/czyt/pocket-id/pocket-id:3a9640998f9c5f4d
+        environment:
+            - APP_URL=https://${LAZYCAT_APP_DOMAIN}
+            - TRUST_PROXY={{.U.trust_proxy}}
+            - MAXMIND_LICENSE_KEY={{.U.maxmind_license_key}}
+            - ENCRYPTION_KEY={{stable_secret "pocket_id_encryption_x"}}
+            - PUID=1000
+            - PGID=1000
+        binds:
+            - /lzcapp/var/data:/app/data
+        health_check:
+            test:
+                - CMD-SHELL
+                - /app/pocket-id healthcheck
+            start_period: 30s
