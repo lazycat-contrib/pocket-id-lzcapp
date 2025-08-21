@@ -1,6 +1,6 @@
 name: Pocket ID
 package: lazycat.community.app.pocket-id
-version: 1.6.1
+version: 1.7.0
 min_os_version: 1.3.8
 description: A simple and easy-to-use OIDC provider
 homepage: https://github.com/pocket-id/pocket-id
@@ -16,8 +16,8 @@ application:
 
 services:
     pocket-id:
-        # ghcr.io/pocket-id/pocket-id:v1
-        image: registry.lazycat.cloud/czyt/pocket-id/pocket-id:3a9640998f9c5f4d
+        # ghcr.io/pocket-id/pocket-id:v1.7.0
+        image: registry.lazycat.cloud/czyt/pocket-id/pocket-id:34e2eec0ef02437e
         environment:
 {{if .U.enable_custom_domain}}
             - APP_URL=https://{{.U.custom_domain}}
