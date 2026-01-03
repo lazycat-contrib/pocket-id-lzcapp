@@ -36,3 +36,12 @@ services:
                 - CMD-SHELL
                 - /app/pocket-id healthcheck
             start_period: 30s
+
+
+locales:
+  en:
+    name: "Pocket ID"
+    description: "A simple and easy-to-use OIDC provider"
+  zh:
+    name: "Pocket ID"
+    description: "一个简单易用的OIDC提供商"
