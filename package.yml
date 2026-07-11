@@ -1,11 +1,10 @@
 package: lazycat.community.app.pocket-id
-version: 2.0.1
+version: 2.10.0
 name: Pocket ID
 description: A simple and easy-to-use OIDC provider
 min_os_version: 1.5.0
 homepage: https://github.com/pocket-id/pocket-id
 author: pocket-id
-
 locales:
   en:
     name: Pocket ID

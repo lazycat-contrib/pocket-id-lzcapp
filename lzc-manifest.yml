@@ -7,11 +7,11 @@ application:
   upstreams:
     - location: /
       backend: http://pocket-id:1411/
-
 services:
   pocket-id:
     # ghcr.io/pocket-id/pocket-id:v2.0.1
-    image: registry.lazycat.cloud/czyt/pocket-id/pocket-id:8f147fdffe17bfc8
+    # upstream: ghcr.io/pocket-id/pocket-id:v2.10.0
+    image: registry.lazycat.cloud/czyt/pocket-id/pocket-id:049cea344eba31ef
     environment:
 {{if .U.enable_custom_domain}}
       - APP_URL=https://{{.U.custom_domain}}
