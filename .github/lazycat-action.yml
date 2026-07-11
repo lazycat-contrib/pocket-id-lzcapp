@@ -1,0 +1,44 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/pocket-id.lpk
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: pocket-id
+
+build:
+  run_buildscript: false
+
+images:
+  - id: pocket-id
+    target: service
+    service: pocket-id
+    source: ghcr.io/pocket-id/pocket-id
+    channel: stable
+    tag_regex: '^v?\d+\.\d+\.\d+$'
+    delivery:
+      mode: lazycat
+
+stores:
+  official:
+    enabled: true
+    skip_if_version_exists: true
+    create_if_missing: true
+    changelog_locales: [zh, en]
+    application:
+      language: zh
+      name: Pocket ID
+      source: https://github.com/pocket-id/pocket-id
+      source_author: pocket-id
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: Pocket ID
+    summary: Pocket ID 的 LazyCat 自动构建版本
