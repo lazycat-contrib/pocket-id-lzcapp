@@ -10,8 +10,8 @@ application:
 services:
   pocket-id:
     # ghcr.io/pocket-id/pocket-id:v2.0.1
-    # upstream: ghcr.io/pocket-id/pocket-id:v2.17.0
-    image: registry.lazycat.cloud/czyt/pocket-id/pocket-id:fe2f65121e7e7814
+    # upstream: ghcr.io/pocket-id/pocket-id:v2.18.0
+    image: registry.lazycat.cloud/czyt/pocket-id/pocket-id:c02f2dff9b64bf07
     environment:
 {{if .U.enable_custom_domain}}
       - APP_URL=https://{{.U.custom_domain}}
