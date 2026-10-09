@@ -1,4 +1,5 @@
 package: lazycat.community.app.pocket-id
+license: BSD-2-Clause
 version: 2.18.0
 name: Pocket ID
 description: A simple and easy-to-use OIDC provider
