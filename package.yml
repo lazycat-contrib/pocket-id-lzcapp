@@ -1,6 +1,6 @@
 package: lazycat.community.app.pocket-id
 license: BSD-2-Clause
-version: 2.18.0
+version: 2.19.1
 name: Pocket ID
 description: A simple and easy-to-use OIDC provider
 min_os_version: 1.5.0
